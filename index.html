@@ -12,33 +12,35 @@
 <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 </script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init({
-        publicKey: "zcvtpzxlYE6XH5zWD",
-      });
-   })();
+<!-- Include EmailJS SDK -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("zcvtpzxlYE6XH5zWD"); // Your User ID (Public Key)
+  })();
 </script>
-
 
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("farmVisitForm").addEventListener("submit", function(event) { 
-        event.preventDefault(); 
-        emailjs.send("service_2x27kkq", "template_h7n6tso", { 
-            name: event.target.name.value, 
-            email: event.target.email.value, 
-            phone: event.target.phone.value 
-        }) 
-        .then(function(response) { 
-            alert("Request sent successfully!"); 
-        }, function(error) { 
-            alert("Failed to send request. Please try again."); 
-        }); 
+  document.getElementById("farmVisitForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    emailjs.send("service_2x27kkq", "template_h7n6tso", {
+      name: event.target.name.value,
+      email: event.target.email.value,
+      phone: event.target.phone.value,
+      title: "Farm Visit Request"
+    })
+    .then(function(response) {
+      alert("Request sent successfully!");
+    }, function(error) {
+      alert("Failed to send request. Please try again.");
     });
+  });
 });
 </script>
+
 
 <style>
 /* ========================================================
