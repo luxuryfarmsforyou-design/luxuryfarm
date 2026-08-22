@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
       name: event.target.name.value,
       email: event.target.email.value,
       phone: event.target.phone.value,
-      title: "Farm Visit Request"
+      title: event.target.title.value.length === 0 ? "Farm Land": event.target.title.va;ie
     })
     .then(function(response) {
       alert("Request sent successfully!");
@@ -1004,7 +1004,10 @@ nav a:hover::after { left:16px; right:16px; }
              <div class="form-group"> 
                  <input type="text" name="name" placeholder="Your Full Name" required> 
              </div> 
-             
+               <div class="form-group"> 
+                 <input type="textarea" name="title" placeholder="Farm Land Visit"  required> 
+             </div> 
+           
              <div class="form-group"> 
                  <input type="email" name="email" placeholder="Email Address" required> 
              </div> 
