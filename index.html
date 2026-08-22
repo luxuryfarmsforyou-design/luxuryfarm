@@ -22,21 +22,21 @@
 
 
 
-
 <script>
-document.getElementById("farmVisitForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
-    name: event.target.name.value,
-    email: event.target.email.value,
-    phone: event.target.phone.value
-  })
-  .then(function(response) {
-    alert("Request sent successfully!");
-  }, function(error) {
-    alert("Failed to send request. Please try again.");
-  });
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("farmVisitForm").addEventListener("submit", function(event) { 
+        event.preventDefault(); 
+        emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", { 
+            name: event.target.name.value, 
+            email: event.target.email.value, 
+            phone: event.target.phone.value 
+        }) 
+        .then(function(response) { 
+            alert("Request sent successfully!"); 
+        }, function(error) { 
+            alert("Failed to send request. Please try again."); 
+        }); 
+    });
 });
 </script>
 
